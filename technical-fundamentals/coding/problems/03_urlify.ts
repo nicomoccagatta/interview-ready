@@ -5,5 +5,14 @@
 // and that you are given the "true" length of the string.
 
 export default function URLify (s1 : string): string {
-
+  // return s1.replaceAll(' ', '%20')
+  let output = ''
+  for (let i = 0; i < s1.length; i++) {
+    if (s1[i] === ' ') {
+      output += '%20'
+    } else {
+      output += s1[i]
+    }
+  }
+  return output
 }
