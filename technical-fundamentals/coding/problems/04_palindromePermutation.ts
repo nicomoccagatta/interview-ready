@@ -10,5 +10,19 @@
 // ```
 
 export default function palindromePermutation (str: string): boolean {
+  let dictionary: { [key: string]: number } = {}
+  const letters = str.toLocaleLowerCase().replaceAll(' ', '')
 
+  for (let c of letters) {
+    if (!dictionary[c]) {
+      dictionary[c] = 1
+    } else {
+      dictionary[c]++
+    }
+  }
+
+  const oddLetters =
+    Object.keys(dictionary).filter(key => dictionary[key] % 2 !== 0)
+
+  return oddLetters.length <= 1 // Can be max 1 odd letter
 }
